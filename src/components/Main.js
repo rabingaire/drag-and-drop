@@ -5,7 +5,8 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: [] 
+            cards: [],
+            cardPosition: this.props.cardPosition
         };
     }
 
@@ -30,14 +31,20 @@ export default class Main extends React.Component {
     }
 
     renderPannel(i, pannelTitle) {
-        const cardPosition = this.props.cardPosition;
+        const cardPosition = this.state.cardPosition;
         const pannel = ( i == cardPosition) ? this.renderCards() : null;
 
         return (
-            <Pannel title={pannelTitle} key={i}>
-                {pannel}
-            </Pannel>  
+            <div key={i} className="medium-4 columns text-center pannel pd-10" onClick={() => this.handlePannelClick(i)}>
+                <Pannel title={pannelTitle}>
+                    {pannel}
+                </Pannel>
+            </div> 
         );
+    }
+
+    handlePannelClick(cardPosition) {
+        this.setState({cardPosition});
     }
 
     render(){
