@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Form = () => {
+const Form = (props) => {
     return (
         <div>
-            <form>
-                <input type="text" placeholder="Enter Text..."/>    
-            </form>
+            <input type={props.type} placeholder={props.placeholder}/>    
         </div>
     )
 };
