@@ -14,7 +14,12 @@ module.exports = {
                     fallback: "style-loader",
                     use: [
                         { loader: "css-loader" },
-                        { loader: "sass-loader" }
+                        { 
+                            loader: "sass-loader",
+                            options: {
+                                includePaths: [__dirname, './src/styles/']
+                            } 
+                        }
                     ]
                 })
             },
