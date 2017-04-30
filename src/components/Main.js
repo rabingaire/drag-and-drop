@@ -21,7 +21,32 @@ export default class Main extends React.Component {
         }
     }
 
+    renderCards() {
+        const cards = [];
+        this.state.cards.map( card => 
+            cards.push(<Card text={card.text} key={card.id}/>)
+        );
+        return cards;
+    }
+
+    renderPannel(i, pannelTitle) {
+        const cardPosition = this.props.cardPosition;
+        const pannel = ( i == cardPosition) ? this.renderCards() : null;
+
+        return (
+            <Pannel title={pannelTitle} key={i}>
+                {pannel}
+            </Pannel>  
+        );
+    }
+
     render(){
+        const pannels = [];
+        const pannelTitles = ['To Do', 'Completed']
+        for (let i = 0; i < 2; i++) {
+            pannels.push(this.renderPannel(i, pannelTitles[i]));
+        }
+
         return (
             <div>
                 <div className="row mgtp-10">
@@ -34,13 +59,15 @@ export default class Main extends React.Component {
                 </div>
 
                 <div className="row mgtp-10">
-                    <Pannel title="To Do">
+                    {/*<Pannel title="To Do">
                         { this.state.cards.map( card => 
                             <Card text={card.text} key={card.id}/>
                         )}
                     </Pannel>
                     <Pannel title="Completed">
-                    </Pannel>
+
+                    </Pannel>*/}
+                    {pannels}
                 </div>
             </div>
         )
