@@ -1,7 +1,9 @@
 import React from 'react';
 import { Pannel, Card } from './common';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +27,7 @@ export default class Main extends React.Component {
     renderCards() {
         const cards = [];
         this.state.cards.map( card => 
-            cards.push(<Card text={card.text} key={card.id}/>)
+            cards.push(<Card text={card.text} id={card.id} key={card.id}/>)
         );
         return cards;
     }
@@ -80,3 +82,5 @@ export default class Main extends React.Component {
         )
     }
 }
+
+export default DragDropContext(HTML5Backend)(Main);
