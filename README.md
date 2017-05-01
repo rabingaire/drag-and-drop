@@ -21,7 +21,7 @@
 
   ``` webpack-dev-server ```
 
-  to start the development server.
+    to start the development server.
 
 4. Visit `http://localhost:8080` to access the application.
 5. Play around with it.
