@@ -24,22 +24,23 @@ class Main extends React.Component {
         }
     }
 
-    renderCards() {
-        const cards = [];
-        this.state.cards.map( card => 
-            cards.push(<Card text={card.text} id={card.id} key={card.id}/>)
-        );
-        return cards;
+    renderCards(i, cardPosition) {
+        if(i == cardPosition) {
+            const cards = [];
+            this.state.cards.map( card => 
+                cards.push(<Card text={card.text} id={card.id} key={card.id}/>)
+            );
+            return cards;
+        }
     }
 
     renderPannel(i, pannelTitle) {
         const cardPosition = this.state.cardPosition;
-        const pannel = ( i == cardPosition) ? this.renderCards() : null;
 
         return (
             <div key={i} className="medium-4 columns text-center pannel pd-10" onClick={() => this.handlePannelClick(i)}>
                 <Pannel title={pannelTitle}>
-                    {pannel}
+                    {this.renderCards(i, this.state.cardPosition)}
                 </Pannel>
             </div> 
         );
@@ -68,14 +69,6 @@ class Main extends React.Component {
                 </div>
 
                 <div className="row mgtp-10">
-                    {/*<Pannel title="To Do">
-                        { this.state.cards.map( card => 
-                            <Card text={card.text} key={card.id}/>
-                        )}
-                    </Pannel>
-                    <Pannel title="Completed">
-
-                    </Pannel>*/}
                     {pannels}
                 </div>
             </div>

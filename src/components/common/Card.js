@@ -5,7 +5,7 @@ import { DragSource } from 'react-dnd';
 
 const cardSource = {
     beginDrag(props) {
-        return {cardId: props.id};
+        return {id: props.id};
     }
 }
 
@@ -22,8 +22,6 @@ class  Card extends React.Component {
         return connectDragSource(
             <div className="card pd-20" style={{
                 backgroundColor: isDragging ? 'red' : 'green',
-                fontSize: 25,
-                fontWeight: 'bold',
                 cursor: 'move'
             }}>
                 {text}
