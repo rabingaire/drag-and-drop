@@ -50,6 +50,17 @@ class Main extends React.Component {
         this.setState({cardPosition});
     }
 
+    inputForm() {
+        return (
+            <div className="small-12 medium-4 medium-centered columns text-center">
+                <form>
+                    <input type="text" placeholder="Enter Text..." ref="inputForm" required="true"/>
+                    <a href="#" className="button" onClick={this.onSubmit.bind(this)}>Post</a>
+                </form>
+            </div>
+        )
+    }
+
     render(){
         const pannels = [];
         const pannelTitles = ['To Do', 'Completed']
@@ -60,12 +71,7 @@ class Main extends React.Component {
         return (
             <div>
                 <div className="row mgtp-10">
-                    <div className="small-12 medium-4 medium-centered columns text-center">
-                        <form>
-                            <input type="text" placeholder="Enter Text..." ref="inputForm" required="true"/>
-                            <a href="#" className="button" onClick={this.onSubmit.bind(this)}>Post</a>
-                        </form>
-                    </div>
+                    {this.inputForm()} 
                 </div>
 
                 <div className="row mgtp-10">
