@@ -4,9 +4,8 @@ import { ItemTypes } from './Constants';
 import { DropTarget } from 'react-dnd';
 
 const pannelTarget = {
-  drop(props, monitor) {
+  drop(props) {
       props.handlePannelClick(props.newPosition);
-      monitor.getItem();
   }
 };
 
