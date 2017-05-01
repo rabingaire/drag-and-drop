@@ -38,8 +38,8 @@ class Main extends React.Component {
         const cardPosition = this.state.cardPosition;
 
         return (
-            <div key={i} className="medium-4 columns text-center pannel pd-10" onClick={() => this.handlePannelClick(i)}>
-                <Pannel title={pannelTitle}>
+            <div key={i} className="medium-4 columns text-center pannel pd-10">
+                <Pannel title={pannelTitle} handlePannelClick={this.handlePannelClick.bind(this)} newPosition={i}>
                     {this.renderCards(i, this.state.cardPosition)}
                 </Pannel>
             </div> 
