@@ -15,11 +15,15 @@
 1. Clone the Repository.
 2. Inside the `drag-and-drop` folder, run the command below to install all dependency.
 
-    ``` yarn install ```
+    ```bash 
+    yarn install 
+    ```
 
 3. Run
 
-    ``` webpack-dev-server ```
+    ```bash
+    webpack-dev-server
+    ```
 
    to start the development server.
 
