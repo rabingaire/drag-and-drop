@@ -1,12 +1,16 @@
 import React from 'react';
 
-const Pannel = ({ children, title }) => {
-    return(
-        <div>
-            {title}
-            {children}
-        </div>
-    )
+class Pannel extends React.Component {
+    render() {
+        const { title, children } = this.props;
+        
+        return (
+            <div>
+                {title}
+                {children}
+            </div>
+        )
+    }
 }
 
 export default Pannel;
